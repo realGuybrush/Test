@@ -16,9 +16,9 @@ class SomeClass
     public void Run()
     {
         var someStruct = new SomeStruct();
-        SomeMethod((ISomeInterface)someStruct);
+        SomeMethod(someStruct);
     }
-    public void SomeMethod(ISomeInterface @interface)
+    public void SomeMethod<T>(T @interface) where T:ISomeInterface
     {
         @interface.Call();
     }

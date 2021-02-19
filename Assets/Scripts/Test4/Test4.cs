@@ -5,16 +5,15 @@ using UnityEngine;
 public struct ApiSetup<T>
 {
 }
-
 public static class ApiExtension
 {
-    public static void SetupObjectA(this ObjectA T)
+    public static void SetupObjectA(this ApiSetup<ObjectA> a)
     {
-
+        a.SetupObjectA();
     }
-    public static void SetupObjectB(this ObjectB T)
+    public static void SetupObjectB(this ApiSetup<ObjectB> b)
     {
-
+        b.SetupObjectB();
     }
 }
 class Api
@@ -38,8 +37,8 @@ class SomeClass2
     {
         Api apiObject = new Api();
 
-        //apiObject.For(new ObjectA()).SetupObjectA();
-        //apiObject.For(new ObjectB()).SetupObjectB();
+        apiObject.For(new ObjectA()).SetupObjectA();
+        apiObject.For(new ObjectB()).SetupObjectB();
     }
 }
 
